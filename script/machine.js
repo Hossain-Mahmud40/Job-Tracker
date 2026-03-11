@@ -26,6 +26,7 @@ function showOnly(id) {
 // Interview Function
 function markInterview(id) {
   const card = document.getElementById(id);
+  const badge = card.querySelector(".badge");
 
   if (card.classList.contains("status-interview") === false) {
     if (card.classList.contains("status-rejected") === true) {
@@ -37,13 +38,19 @@ function markInterview(id) {
     card.classList.add("status-interview");
     intCount = intCount + 1;
     document.getElementById("interview-count").innerText = intCount;
+
+    badge.innerText = "Interview";
+    badge.classList.remove("bg-gray-300", "bg-error", "text-black");
+    badge.classList.add("bg-success", "text-white");
   }
-  filterJobs(activeTab);
+
+  filterJobs(activeTab); // Real time refresh..google theke help naoa..
 }
 
 // rejected button er function
 function markRejected(id) {
   const card = document.getElementById(id);
+  const badge = card.querySelector(".badge");
 
   if (card.classList.contains("status-rejected") === false) {
     if (card.classList.contains("status-interview") === true) {
@@ -55,7 +62,12 @@ function markRejected(id) {
     card.classList.add("status-rejected");
     rejCount = rejCount + 1;
     document.getElementById("rejected-count").innerText = rejCount;
+
+    badge.innerText = "Rejected";
+    badge.classList.remove("bg-gray-300", "bg-success", "text-black");
+    badge.classList.add("bg-error", "text-white");
   }
+
   filterJobs(activeTab);
 }
 
