@@ -64,172 +64,314 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div class="bg-base-200 p-4 rounded-lg">
           <h2 class="text-[14px]">Total</h2>
-          <p class="text-[24px] font-bold">8</p>
+          <p class="text-[24px] font-bold"><span id="total-count">8</span></p>
         </div>
         <div class="bg-base-200 p-4 rounded-lg">
           <h2 class="text-[14px] font-bold">Interview</h2>
-          <p class="text-[24px] font-bold text-[#10B981]">0</p>
+          <p class="text-[24px] font-bold text-[#10B981]">
+            <span id="interview-count">0</span>
+          </p>
         </div>
         <div class="bg-base-200 p-4 rounded-lg">
           <h2 class="text-[14px] font-bold">Rejected</h2>
-          <p class="text-[24px] font-bold text-[#EF4444]">0</p>
+          <p class="text-[24px] font-bold text-[#EF4444]">
+            <span id="rejected-count">0</span>
+          </p>
         </div>
       </div>
     </section>
     <section class="Available-Jobs">
       <div class="flex text-center items-center justify-between mt-7">
         <h1 class="text-[20px]">Available Jobs</h1>
-        <p class="text-[#64748B]">8 jobs</p>
+        <p class="text-[#64748B]"><span id="tab-job-count">8</span> jobs</p>
       </div>
       <div class="flex gap-2 mt-4">
-        <button class="btn btn-primary" onclick="showOnly('hero-card')">
+        <button
+          id="btn-all"
+          class="btn btn-primary"
+          onclick="filterJobs('all')"
+        >
           All
         </button>
-        <button onclick="showOnly('No-Jobs')" class="btn">Interview</button>
-        <button onclick="showOnly('No-Jobs')" class="btn">Rejected</button>
+        <button
+          id="btn-interview"
+          onclick="filterJobs('interview')"
+          class="btn"
+        >
+          Interview
+        </button>
+        <button id="btn-rejected" onclick="filterJobs('rejected')" class="btn">
+          Rejected
+        </button>
       </div>
     </section>
     <section id="hero-card" class="mt-10">
-      <div class="card bg-base-100 w-full shadow-sm mb-10">
+      <div id="job-1" class="card bg-base-100 w-full shadow-sm mb-10">
         <div class="card-body">
           <h2 class="card-title font-xl">Mobile First Corp</h2>
-          <h3 class="text-[#64748B]">React Native Developer</h3>
-          <p class="text-[#64748B]">Remote • Full-time • $130,000 - $175,000</p>
+          <div class="flex items-center justify-between">
+            <div class="">
+              <h3 class="text-[#64748B]">React Native Developer</h3>
+              <p class="text-[#64748B]">
+                Remote • Full-time • $130,000 - $175,000
+              </p>
+            </div>
+            <div class="trash-bin"><i class="fa-regular fa-trash-can"></i></div>
+          </div>
           <div class="badge bg-gray-300 p-4">Not Applied</div>
           <p class="text-[#64748B]">
             Build cross-platform mobile applications using React Native. Work on
             products used by millions of users worldwide.
           </p>
           <div class="card-actions flex">
-            <div class="btn btn-outline btn-success">INTERVIEW</div>
-            <div class="btn btn-outline btn-error">REJECTED</div>
+            <div
+              onclick="markInterview('job-1')"
+              class="btn btn-outline btn-success"
+            >
+              INTERVIEW
+            </div>
+            <div
+              onclick="markRejected('job-1')"
+              class="btn btn-outline btn-error"
+            >
+              REJECTED
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="card bg-base-100 w-full shadow-sm mb-10">
+      <div id="job-2" class="card bg-base-100 w-full shadow-sm mb-10">
         <div class="card-body">
           <h2 class="card-title font-xl">CloudScale Solutions</h2>
-          <h3 class="text-[#64748B]">Senior Backend Engineer</h3>
-          <p class="text-[#64748B]">
-            New York, NY (Hybrid) • Full-time • $150,000 - $190,000
-          </p>
+          <div class="flex items-center justify-between">
+            <div class="">
+              <h3 class="text-[#64748B]">Senior Backend Engineer</h3>
+              <p class="text-[#64748B]">
+                New York, NY (Hybrid) • Full-time • $150,000 - $190,000
+              </p>
+            </div>
+            <div class="trash-bin"><i class="fa-regular fa-trash-can"></i></div>
+          </div>
           <div class="badge bg-gray-300 p-4">Not Applied</div>
           <p class="text-[#64748B]">
             Design and maintain high-performance microservices using Node.js and
             Go. Optimize database queries for enterprise clients.
           </p>
           <div class="card-actions flex">
-            <div class="btn btn-outline btn-success">INTERVIEW</div>
-            <div class="btn btn-outline btn-error">REJECTED</div>
+            <div
+              onclick="markInterview('job-2')"
+              class="btn btn-outline btn-success"
+            >
+              INTERVIEW
+            </div>
+            <div
+              onclick="markRejected('job-2')"
+              class="btn btn-outline btn-error"
+            >
+              REJECTED
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="card bg-base-100 w-full shadow-sm mb-10">
+      <div id="job-3" class="card bg-base-100 w-full shadow-sm mb-10">
         <div class="card-body">
           <h2 class="card-title font-xl">FinTech Innovations</h2>
-          <h3 class="text-[#64748B]">Frontend Web Developer</h3>
-          <p class="text-[#64748B]">Remote • Contract • $60/hr - $85/hr</p>
+          <div class="flex items-center justify-between">
+            <div class="">
+              <h3 class="text-[#64748B]">Frontend Web Developer</h3>
+              <p class="text-[#64748B]">Remote • Contract • $60/hr - $85/hr</p>
+            </div>
+            <div class="trash-bin"><i class="fa-regular fa-trash-can"></i></div>
+          </div>
           <div class="badge bg-gray-300 p-4">Not Applied</div>
           <p class="text-[#64748B]">
             Create responsive, accessible financial dashboards using React and
             Tailwind CSS. Collaborate closely with UI/UX teams.
           </p>
           <div class="card-actions flex">
-            <div class="btn btn-outline btn-success">INTERVIEW</div>
-            <div class="btn btn-outline btn-error">REJECTED</div>
+            <div
+              onclick="markInterview('job-3')"
+              class="btn btn-outline btn-success"
+            >
+              INTERVIEW
+            </div>
+            <div
+              onclick="markRejected('job-3')"
+              class="btn btn-outline btn-error"
+            >
+              REJECTED
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="card bg-base-100 w-full shadow-sm mb-10">
+      <div id="job-4" class="card bg-base-100 w-full shadow-sm mb-10">
         <div class="card-body">
           <h2 class="card-title font-xl">DataSphere Analytics</h2>
-          <h3 class="text-[#64748B]">Machine Learning Engineer</h3>
-          <p class="text-[#64748B]">
-            San Francisco, CA • Full-time • $160,000 - $210,000
-          </p>
+          <div class="flex items-center justify-between">
+            <div class="">
+              <h3 class="text-[#64748B]">Machine Learning Engineer</h3>
+              <p class="text-[#64748B]">
+                San Francisco, CA • Full-time • $160,000 - $210,000
+              </p>
+            </div>
+            <div class="trash-bin"><i class="fa-regular fa-trash-can"></i></div>
+          </div>
           <div class="badge bg-gray-300 p-4">Not Applied</div>
           <p class="text-[#64748B]">
             Develop and deploy predictive models. Work with large-scale datasets
             using Python, TensorFlow, and AWS SageMaker.
           </p>
           <div class="card-actions flex">
-            <div class="btn btn-outline btn-success">INTERVIEW</div>
-            <div class="btn btn-outline btn-error">REJECTED</div>
+            <div
+              onclick="markInterview('job-4')"
+              class="btn btn-outline btn-success"
+            >
+              INTERVIEW
+            </div>
+            <div
+              onclick="markRejected('job-4')"
+              class="btn btn-outline btn-error"
+            >
+              REJECTED
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="card bg-base-100 w-full shadow-sm mb-10">
+      <div id="job-5" class="card bg-base-100 w-full shadow-sm mb-10">
         <div class="card-body">
           <h2 class="card-title font-xl">Pixel Perfect Studios</h2>
-          <h3 class="text-[#64748B]">UI/UX Designer</h3>
-          <p class="text-[#64748B]">Remote • Full-time • $90,000 - $125,000</p>
+          <div class="flex items-center justify-between">
+            <div class="">
+              <h3 class="text-[#64748B]">UI/UX Designer</h3>
+              <p class="text-[#64748B]">
+                Remote • Full-time • $90,000 - $125,000
+              </p>
+            </div>
+            <div class="trash-bin"><i class="fa-regular fa-trash-can"></i></div>
+          </div>
           <div class="badge bg-gray-300 p-4">Not Applied</div>
           <p class="text-[#64748B]">
             Lead the design system for our core SaaS product. Conduct user
             research, wireframing, and high-fidelity prototyping in Figma.
           </p>
           <div class="card-actions flex">
-            <div class="btn btn-outline btn-success">INTERVIEW</div>
-            <div class="btn btn-outline btn-error">REJECTED</div>
+            <div
+              onclick="markInterview('job-5')"
+              class="btn btn-outline btn-success"
+            >
+              INTERVIEW
+            </div>
+            <div
+              onclick="markRejected('job-5')"
+              class="btn btn-outline btn-error"
+            >
+              REJECTED
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="card bg-base-100 w-full shadow-sm mb-10">
+      <div id="job-6" class="card bg-base-100 w-full shadow-sm mb-10">
         <div class="card-body">
           <h2 class="card-title font-xl">SecureNet Security</h2>
-          <h3 class="text-[#64748B]">Cybersecurity Analyst</h3>
-          <p class="text-[#64748B]">
-            Chicago, IL • Full-time • $110,000 - $140,000
-          </p>
+          <div class="flex items-center justify-between">
+            <div class="">
+              <h3 class="text-[#64748B]">Cybersecurity Analyst</h3>
+              <p class="text-[#64748B]">
+                Chicago, IL • Full-time • $110,000 - $140,000
+              </p>
+            </div>
+            <div class="trash-bin"><i class="fa-regular fa-trash-can"></i></div>
+          </div>
           <div class="badge bg-gray-300 p-4">Not Applied</div>
           <p class="text-[#64748B]">
             Monitor network traffic for anomalies, perform penetration testing,
             and ensure compliance with industry security standards.
           </p>
           <div class="card-actions flex">
-            <div class="btn btn-outline btn-success">INTERVIEW</div>
-            <div class="btn btn-outline btn-error">REJECTED</div>
+            <div
+              onclick="markInterview('job-6')"
+              class="btn btn-outline btn-success"
+            >
+              INTERVIEW
+            </div>
+            <div
+              onclick="markRejected('job-6')"
+              class="btn btn-outline btn-error"
+            >
+              REJECTED
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="card bg-base-100 w-full shadow-sm mb-10">
+      <div id="job-7" class="card bg-base-100 w-full shadow-sm mb-10">
         <div class="card-body">
           <h2 class="card-title font-xl">NextGen DevOps</h2>
-          <h3 class="text-[#64748B]">DevOps Engineer</h3>
-          <p class="text-[#64748B]">
-            Austin, TX (Hybrid) • Full-time • $135,000 - $165,000
-          </p>
+          <div class="flex items-center justify-between">
+            <div class="">
+              <h3 class="text-[#64748B]">DevOps Engineer</h3>
+              <p class="text-[#64748B]">
+                Austin, TX (Hybrid) • Full-time • $135,000 - $165,000
+              </p>
+            </div>
+            <div class="trash-bin"><i class="fa-regular fa-trash-can"></i></div>
+          </div>
           <div class="badge bg-gray-300 p-4">Not Applied</div>
           <p class="text-[#64748B]">
             Automate CI/CD pipelines, manage cloud infrastructure via Terraform,
             and ensure 99.99% uptime for core services.
           </p>
           <div class="card-actions flex">
-            <div class="btn btn-outline btn-success">INTERVIEW</div>
-            <div class="btn btn-outline btn-error">REJECTED</div>
+            <div
+              onclick="markInterview('job-7')"
+              class="btn btn-outline btn-success"
+            >
+              INTERVIEW
+            </div>
+            <div
+              onclick="markRejected('job-7')"
+              class="btn btn-outline btn-error"
+            >
+              REJECTED
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="card bg-base-100 w-full shadow-sm mb-10">
+      <div id="job-8" class="card bg-base-100 w-full shadow-sm mb-10">
         <div class="card-body">
           <h2 class="card-title font-xl">HealthTech Systems</h2>
-          <h3 class="text-[#64748B]">Full Stack Developer</h3>
-          <p class="text-[#64748B]">Remote • Full-time • $120,000 - $155,000</p>
+          <div class="flex items-center justify-between">
+            <div class="">
+              <h3 class="text-[#64748B]">Full Stack Developer</h3>
+              <p class="text-[#64748B]">
+                Remote • Full-time • $120,000 - $155,000
+              </p>
+            </div>
+            <div class="trash-bin"><i class="fa-regular fa-trash-can"></i></div>
+          </div>
           <div class="badge bg-gray-300 p-4">Not Applied</div>
           <p class="text-[#64748B]">
             Build HIPAA-compliant patient portals using Vue.js and Django.
             Contribute to architecture decisions and mentor junior devs.
           </p>
           <div class="card-actions flex">
-            <div class="btn btn-outline btn-success">INTERVIEW</div>
-            <div class="btn btn-outline btn-error">REJECTED</div>
+            <div
+              onclick="markInterview('job-8')"
+              class="btn btn-outline btn-success"
+            >
+              INTERVIEW
+            </div>
+            <div
+              onclick="markRejected('job-8')"
+              class="btn btn-outline btn-error"
+            >
+              REJECTED
+            </div>
           </div>
         </div>
       </div>
