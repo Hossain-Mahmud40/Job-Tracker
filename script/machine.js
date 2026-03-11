@@ -123,3 +123,19 @@ function filterJobs(tabName) {
     heroCardSection.classList.remove("hidden");
   }
 }
+
+// Delete job Function
+function deleteJob(id) {
+  const card = document.getElementById(id);
+  if (card.classList.contains("status-interview") === true) {
+    intCount = intCount - 1;
+    document.getElementById("interview-count").innerText = intCount;
+  } else if (card.classList.contains("status-rejected") === true) {
+    rejCount = rejCount - 1;
+    document.getElementById("rejected-count").innerText = rejCount;
+  }
+  totalCount = totalCount - 1;
+  document.getElementById("total-count").innerText = totalCount;
+  card.remove();
+  filterJobs(activeTab);
+}
